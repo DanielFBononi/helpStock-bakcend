@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace HelpStockApp.Domain.Entity
 {
-    internal class Entity
+    public class Entity
     {
+        public int Id { get; set; }
     }
 }

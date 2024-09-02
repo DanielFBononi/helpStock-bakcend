@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace HelpStockApp.Domain.Entity
 {
-    internal class Category
+    public class Category : Entity
     {
+        public string Name { get; set; }
+
+        public Category(string name ) 
+        {
+            this.Name = name;
+        }
+        public Entity
     }
 }
