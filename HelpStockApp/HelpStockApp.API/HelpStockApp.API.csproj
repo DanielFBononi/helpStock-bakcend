@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HelpStockApp.Application\HelpStockApp.Application.csproj" />
     <ProjectReference Include="..\HelpStockApp.Infra.IoC\HelpStockApp.Infra.IoC.csproj" />
   </ItemGroup>
 
