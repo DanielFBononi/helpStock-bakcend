@@ -6,8 +6,8 @@ namespace HelpStockApp.Application.Interfaces
         {
             Task<IEnumerable<ProductDTO>> GetProducts();
             Task<ProductDTO> GetProductById(int? id);
-            Task Add(ProductDTO productDto);
-            Task Update(ProductDTO productDto);
+            Task Add(ProductDTO productDTO);
+            Task Update(ProductDTO productDTO);
             Task Remove(int? id);
         }
     

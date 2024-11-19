@@ -38,6 +38,50 @@ namespace HelpStockApp.API.Controllers
             }
             return Ok(product);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateProduct([FromBody] ProductDTO productDTO)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+
+
+            }
+                await _productService.Add(productDTO);  
+                return CreatedAtAction(nameof(Get), new {id = productDTO.Id}, productDTO);
+        }
+
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Update(int id, [FromBody] ProductDTO productDTO)
+        {
+            if (id != productDTO.Id)
+            {
+                return BadRequest("id not fund");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            await _productService.Update(productDTO);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var product = await _productService.GetProductById(id);
+            if (product ==null)
+            {
+                return NotFound();
+            }
+
+            await _productService.Remove(id);
+            return Ok();
+        }
     }
 }
 
